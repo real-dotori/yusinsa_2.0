@@ -1,196 +1,324 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+// common [s]
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap");
 
 * {
-    font-family: Montserrat, Noto Sans KR, sans-serif;
-    letter-spacing: -0.01em;
-    // line-height: 1.5em;
-    margin: 0;
-    padding: 0;    
-    box-sizing: border-box;
+  font-family: Montserrat, Noto Sans KR, sans-serif;
+  letter-spacing: -0.01em;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 a {
-    text-decoration: none;
-    display: block;
+  text-decoration: none;
+  display: block;
 }
 
 button {
-    // border: none;
-    display: block;
+  display: block;
 }
 
-$black: #212121;
+input {
+    outline: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+$black: #000000;
 $white: #ffffff;
 $gray: #777777;
 $dark-gray: #555555;
 $light-gray: #c0c0c0;
-$green: #00BA00;
-
+$green: #00ba00;
 
 #app {
-    width: 100%;
-    height: 100%;
-    overflow: scroll;
-    color: $black;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  color: $black;
 }
+// common [e]
 
+// splash [s]
 .splash {
-    background-color: $black;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    padding: 250px 20px;
-    
-    &-intro {
-        color: $white;
-        h2 {
-            font-size: 48px;
-            font-weight: 700;
-        }
-        p {
-            font-size: 16px;
-            font-weight: 300;
-            font-style: italic;
-            margin-top: 20px;
-        }
-    }
-    &-linkWrap {
-        margin-top: 100px;
-        display: flex;
-        flex-direction: column;
-        
-        a {
-            padding: 15px 45px;
-            font-weight: 500;
-        }
+  background-color: $black;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 250px 20px;
 
-        &__login {
-            color: $black;
-            background: $white;
-        }
-        &__signUp {
-            color: $white;
-            background: $gray;
-            margin-top: 15px;
-        }
+  &-intro {
+    color: $white;
+    h2 {
+      font-size: 48px;
+      font-weight: 700;
     }
+    p {
+      font-size: 16px;
+      font-weight: 300;
+      font-style: italic;
+      margin-top: 20px;
+    }
+  }
+  &-linkWrap {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      padding: 15px 45px;
+      font-weight: 500;
+    }
+
+    &__login {
+      color: $black;
+      background: $white;
+    }
+    &__signUp {
+      color: $white;
+      background: $gray;
+      margin-top: 15px;
+    }
+  }
+}
+// splash [e]
+
+// login [s]
+
+// 로그인, 회원가입 인풋 스타일
+.login-form__input {
+      width: 100%;
+      padding: 12px 6px;
+      margin-top: 8px;
+      color: $black;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      border: none;
+      border-bottom: 2px solid $light-gray;
+    }
+.login-form__input:focus {
+      outline: none;
+      border-bottom: 2px solid $black;
+      transition: all 0.2s ease-in-out;
+    }
+input::placeholder {
+      color: $light-gray;
 }
 
 .login {
-    font-size: 16px;
-    padding: 0 20px;
-    margin: auto;
+  font-size: 16px;
+  padding: 0 20px;
+  margin: auto;
 
-    &-form {
-        margin-top: 200px;
-        &__emailWrap {
-            position: relative;
-            .check {
-                position: absolute;
-                background: url('./assets/check.svg');
-                right: 6px;
-                bottom: 42px;
-                width: 16px;
-                height: 12px;
-            }
-        }
-        &__passwordWrap {
-            margin-top: 30px;
-            position: relative;
-        }
-    }
-    &-buttonWrap {
-        margin-top: 100px;
-        &__google {
-            text-align: center;
-        }
-        &__findPassword {
-            margin-top: 60px;
-            color: $gray;
-            text-decoration: underline;
-            font-size: 14px;
-            text-align: center;
-        }
-        &__login {
-            margin-top: 30px;
-            background: $black;
-            color: $white;
-            padding: 15px 45px;
-            font-size: 16px;
-            font-weight: 500;
-            border: 1px solid $black;
-            width: 100%;
-        }
-        &__signUp {
-            margin-top: 15px;
-            background: $white;
-            border: 1px solid $black;
-            padding: 15px 45px;
-            color: $black;
-            text-align: center;
-            font-weight: 500;
-        }
-    }
-}
+  &-form {
+    margin-top: 200px;
 
-input {
-    width: 100%;
-    padding: 12px 6px;
-    margin-top: 8px;
-    color: $black;
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    border: none;
-    border-bottom: 2px solid $light-gray;
-}
-input:focus {
-    outline: none;
-    border-bottom: 2px solid $black;
-    transition: all .2s ease-in-out;
-}
-input::placeholder {
-    color: $light-gray;
-}
-input + button {
-    position: absolute;
-    right: 6px;
-    bottom: 12px;
-}
-label {
-    font-size: 16px;
-    font-weight: 500;
-}
-.alert {
-    font-size: 14px;
-    color: #ff0000;
-    margin-top: 4px;
-    text-indent: 4px;
-}
-
-
-.signUp {
-    margin-top: 40px;
-    padding: 0 20px;
-    &
-    h2 {
-        font-size: 20px;
+    label {
+        font-size: 16px;
         font-weight: 500;
-        color: $black;
     }
-    &-select {
-        &__typeButton {
-            border: 1px solid $black;
-            background-color: $white;
+    
+    &__emailWrap {
+        position: relative;
+        
+        .check {
+            position: absolute;
+            background: url("./assets/check.svg");
+            right: 6px;
+            bottom: 42px;
+            width: 16px;
+            height: 12px;
         }
     }
-    p {
-        color: $dark-gray;
-        font-size: 14px;
+    
+    &__passwordWrap {
+        margin-top: 30px;
+        position: relative;
+
+        i {
+          position: absolute;
+          right: 6px;
+          bottom: 12px;
+        }
     }
+  }
+
+  &-buttonWrap {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    left: 20px;
+
+    &__google {
+      text-align: center;
+    }
+    &__findPassword {
+      margin-top: 60px;
+      color: $gray;
+      text-decoration: underline;
+      font-size: 14px;
+      text-align: center;
+    }
+    &__login {
+      margin-top: 40px;
+      background: $black;
+      color: $white;
+      padding: 15px 45px;
+      font-size: 16px;
+      font-weight: 500;
+      border: 1px solid $black;
+      width: 100%;
+    }
+    &__signUp {
+      margin-top: 15px;
+      background: $white;
+      border: 1px solid $black;
+      padding: 15px 45px;
+      color: $black;
+      text-align: center;
+      font-weight: 500;
+    }
+  }
 }
+
+.alert {
+  font-size: 14px;
+  color: #ff0000;
+  margin-top: 4px;
+  text-indent: 4px;
+}
+
+// signUp [s]
+.signUp {
+  padding: 180px 20px;
+
+  input {
+    margin-top: 20px;
+  }
+//   input[type="text"] {
+//     width: 100%;
+//     padding: 12px 6px;
+//     margin-top: 8px;
+//     color: $black;
+//     font-size: 16px;
+//     font-weight: 400;
+//     letter-spacing: -0.01em;
+//     border: none;
+//     border-bottom: 2px solid $light-gray;
+//   }
+
+  .check {
+    position: absolute;
+    background: url("./assets/check.svg");
+    right: 6px;
+    bottom: 42px;
+    width: 16px;
+    height: 12px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: $black;
+  }
+
+  &-select {
+      margin-top: 40px;
+      text-align: center;
+      display: flex;
+      justify-content: space-around;
+
+      input[type="radio"]{
+          display: none;
+      }
+
+      input[type="radio"] + span {
+          display: block;
+          background: none;
+          border: 1px solid $light-gray;
+          padding: 16px 48px;
+          font-weight: 400;
+          color: $light-gray;
+      }
+      input[type="radio"]:checked + span {
+          border: 1px solid $black;
+          font-weight: 500;
+          background-color: $black;
+          color: $white;
+      }
+  }
+
+  &-typeInfo {
+    margin-top: 20px;
+
+    li {
+      font-size: 15px;
+      color: $dark-gray;
+    }
+  }
+
+  &-progressBar {
+    &__container {
+      height: 6px;
+      border-radius: 10px;
+      background: $light-gray;
+
+      position: fixed;
+      overflow: hidden;
+      bottom: 110px;
+      left: 20px;
+      right: 20px;
+    }
+
+    &__progress {
+      background: $dark-gray;
+      z-index: 99;
+      width: 20%;
+      height: 6px;
+      border-radius: 10px;
+      position: fixed;
+      bottom: 110px;
+    }
+  }
+
+  &-pageLinks {
+      width: 100%;
+      position: fixed;
+      bottom: 30px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: space-around;
+      &__prev {
+          width: 50%;
+          border: 1px solid $black;
+          padding: 15px 45px; 
+          color: $black;         
+        }
+        &__next {
+            width: 50%;
+          padding: 15px 45px;
+          font-size: 16px;
+          text-align: center;
+          background: $light-gray;
+          color: $white;
+    
+          &.active {
+              background-color: $black;
+              border: none;
+          }
+      }
+  }
+
+}
+// signUp [e]

@@ -6,7 +6,7 @@
     </div>
     <div class="splash-linkWrap">
       <router-link to="/login" class="splash-linkWrap__login">LOGIN</router-link>
-      <router-link to="/signup" class="splash-linkWrap__signUp">SIGN UP</router-link>
+      <router-link to="/signup/0" class="splash-linkWrap__signUp">SIGN UP</router-link>
     </div>
   </div>
 </template>
