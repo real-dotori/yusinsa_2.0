@@ -55,28 +55,24 @@
 
     <div v-if="$route.params.id == 2">
       <h2>이름을 입력해주세요.</h2>
-      <input 
-        type="text"
-        placeholder="ex. 홍길동"
-        class="login-form__input"
-      />
+      <input type="text" placeholder="ex. 홍길동" class="login-form__input" />
     </div>
 
     <div v-if="$route.params.id == 3">
       <h2>비밀번호를 입력해주세요.</h2>
       <input
-      type="password"
-      placeholder="영문 + 숫자 조합 8~12자리"
-      class="login-form__input"
+        type="password"
+        placeholder="영문 + 숫자 조합 8~12자리"
+        class="login-form__input"
       />
     </div>
 
     <div v-if="$route.params.id == 4">
       <h2>비밀번호를 한번 더 입력해주세요.</h2>
       <input
-      type="password"
-      placeholder="영문 + 숫자 조합 8~12자리"
-      class="login-form__input"
+        type="password"
+        placeholder="영문 + 숫자 조합 8~12자리"
+        class="login-form__input"
       />
     </div>
 
@@ -86,35 +82,27 @@
 
     <div class="signUp-progressBar">
       <div class="signUp-progressBar__container"></div>
-      <div 
-      class="signUp-progressBar__progress" 
-      :style="'width:'+ currentProgress + '%; transition: .2s all ease-in-out'"
-      >
-      </div>
+      <div
+        class="signUp-progressBar__progress"
+        :style="
+          'width:' + currentProgress + '%; transition: .2s all ease-in-out'
+        "
+      ></div>
     </div>
 
-
-    <div class="signUp-pageLinks">
+    <div class="signUp-pageLink">
       <router-link
-        class="signUp-pageLinks__prev"
-        :to="`/signUp/` + currentStep"
+        class="signUp-pageLink__next"
+        :class="{ active: true == true }"
+        :to="`/signUp/` + signUpStep"
         @click="nextStep()"
-      >
-        PREV
-      </router-link>
-      <router-link
-        class="signUp-pageLinks__next"
-        :to="`/signUp/` + currentStep"
-        @click="nextStep()"
-      >
-        NEXT
-      </router-link>
+      />
     </div>
   </div>
 </template>
 
 <script>
-import { ref, watch } from "vue";
+import { ref, computed } from "vue";
 export default {
   setup() {
     const userTypes = ref([
@@ -130,19 +118,14 @@ export default {
 
     const emailInput = ref("");
     const correctEmail = ref(true);
+    const signUpStep = computed(() => { return this.$route.params.id });
+    const currentProgress = signUpStep.value * 15;
 
-    const currentStep = ref(0);
-    const currentProgress = watch(() => {
-      return 15 * currentStep.value;
-    });
-
-    function nextStep() {
-      this.currentStep++;
-      
-      // console.log(this.currentStep);
-      return this.currentStep
-    }
-
+    // function nextStep() {
+    //   if ( this.signUpStep < 6 ) {
+    //     this.signUpStep++;
+    //   return this.currentStep;
+    // }
 
     function activeCheck() {
       userTypes.value[0].active = !userTypes.value[0].active;
@@ -156,16 +139,16 @@ export default {
       correctEmail.value = exptext.test(email);
     }
 
-
     return {
       userTypes,
       activeCheck,
       checkEmail,
       correctEmail,
       emailInput,
-      nextStep,
-      currentStep,
+      // nextStep,
+      // currentStep,
       currentProgress,
+      signUpStep,
     };
   },
 };
