@@ -102,7 +102,7 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
+import { ref } from "vue";
 export default {
   setup() {
     const userTypes = ref([
@@ -118,8 +118,8 @@ export default {
 
     const emailInput = ref("");
     const correctEmail = ref(true);
-    const signUpStep = computed(() => { return this.$route.params.id });
-    const currentProgress = signUpStep.value * 15;
+    // const signUpStep = this.$route.params.id ;
+    // const currentProgress = signUpStep.value * 15;
 
     // function nextStep() {
     //   if ( this.signUpStep < 6 ) {
@@ -147,8 +147,8 @@ export default {
       emailInput,
       // nextStep,
       // currentStep,
-      currentProgress,
-      signUpStep,
+      // currentProgress,
+      // signUpStep,
     };
   },
 };
