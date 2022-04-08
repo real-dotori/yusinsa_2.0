@@ -28,11 +28,11 @@
         <i @click="showPassword">눈알</i>
       </div>
       <div class="login-buttonWrap">
-        <a class="login-buttonWrap__google" href="#">Sign in with Google</a>
+        <!-- <a class="login-buttonWrap__google" href="#">Sign in with Google</a> -->
         <a class="login-buttonWrap__findPassword" href="#"
           >비밀번호를 잊으셨나요?</a>
         <button type="submit" class="login-buttonWrap__login" @click="clickLogin()">LOGIN</button>
-        <router-link to="/signUp/0" class="login-buttonWrap__signUp">SIGN UP</router-link>
+        <router-link to="/signup" class="login-buttonWrap__signUp">SIGN UP</router-link>
       </div>
     </div>
   </div>

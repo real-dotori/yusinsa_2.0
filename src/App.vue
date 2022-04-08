@@ -1,12 +1,21 @@
 <template>
-  <router-view></router-view>
+  <HeaderBar></HeaderBar>
+  <router-view :signUp="signUp"></router-view>
 </template>
 
 <script>
-
+import HeaderBar from './components/HeaderBar.vue';
 export default {
-  name: 'App',
   components: {
+    HeaderBar,
+  },
+  setup(){
+    const signUp = {
+
+    }
+    return {
+      signUp
+    }
   }
 }
 </script>

@@ -45,8 +45,23 @@ $green: #00ba00;
   height: 100%;
   overflow: scroll;
   color: $black;
+  // padding: 0 20px;
 }
 // common [e]
+
+// header [s]
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+
+  h1 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+// header [e]
 
 // splash [s]
 .splash {
@@ -54,13 +69,13 @@ $green: #00ba00;
   text-align: center;
   width: 100%;
   height: 100%;
-  padding: 250px 20px;
+  padding: 250px 0;
 
   &-intro {
     color: $white;
     h2 {
       font-size: 48px;
-      font-weight: 700;
+      font-weight: 600;
     }
     p {
       font-size: 16px;
@@ -97,8 +112,8 @@ $green: #00ba00;
 // 로그인, 회원가입 인풋 스타일
 .login-form__input {
   width: 100%;
-  padding: 12px 6px;
-  margin-top: 8px;
+  padding: 8px 4px;
+  margin-top: 5px;
   color: $black;
   font-size: 16px;
   font-weight: 400;
@@ -116,8 +131,8 @@ input::placeholder {
 }
 
 .login {
-  font-size: 16px;
   padding: 0 20px;
+  font-size: 16px;
   margin: auto;
 
   &-form {
@@ -200,22 +215,7 @@ input::placeholder {
 
 // signUp [s]
 .signUp {
-  padding: 180px 20px;
-
-  input {
-    margin-top: 20px;
-  }
-  //   input[type="text"] {
-  //     width: 100%;
-  //     padding: 12px 6px;
-  //     margin-top: 8px;
-  //     color: $black;
-  //     font-size: 16px;
-  //     font-weight: 400;
-  //     letter-spacing: -0.01em;
-  //     border: none;
-  //     border-bottom: 2px solid $light-gray;
-  //   }
+  padding: 60px 20px;
 
   .check {
     position: absolute;
@@ -232,81 +232,110 @@ input::placeholder {
     color: $black;
   }
 
-  &-select {
-    margin-top: 40px;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    gap: 1em;
-
-    input[type="radio"] {
-      display: none;
+  &-form {
+    &__checkbox {
+      input {
+        margin-top: 20px;
+      }
+      label:first-of-type {
+        margin-right: 30px;
+      }
     }
 
-    input[type="radio"] + span {
-      display: block;
-      background: none;
-      border: 1px solid $light-gray;
-      padding: 16px 48px;
-      font-weight: 400;
-      color: $light-gray;
-    }
-    input[type="radio"]:checked + span {
-      border: 1px solid $black;
-      font-weight: 500;
-      background-color: $black;
-      color: $white;
+    &__inputItem {
+      margin-top: 30px;
+
+      label {
+        position: relative;
+
+        i {
+          position: absolute;
+          right: 6px;
+          bottom: 0;
+        }
+      }
     }
   }
 
-  &-typeInfo {
-    margin-top: 20px;
+  // &-select {
+  //   margin-top: 40px;
+  //   text-align: center;
+  //   display: flex;
+  //   // justify-content: space-around;
+  //   // gap: 1em;
 
-    li {
-      font-size: 15px;
-      color: $dark-gray;
-    }
-  }
+  //   input[type="radio"] {
+  //     display: none;
+  //   }
 
-  &-progressBar {
-    &__container {
-      height: 6px;
-      border-radius: 10px;
-      background: $light-gray;
+  //   input[type="radio"] + span {
+  //     display: block;
+  //     background: none;
+  //     border: 1px solid $light-gray;
+  //     padding: 16px 48px;
+  //     font-weight: 400;
+  //     color: $light-gray;
+  //   }
+  //   input[type="radio"]:checked + span {
+  //     border: 1px solid $black;
+  //     font-weight: 500;
+  //     background-color: $black;
+  //     color: $white;
+  //   }
 
-      position: fixed;
-      overflow: hidden;
-      bottom: 110px;
-      left: 20px;
-      right: 20px;
-    }
+  //   label {
+  //     width: 50%;
+  //   }
+  // }
 
-    &__progress {
-      background: $dark-gray;
-      z-index: 99;
-      width: 20%;
-      height: 6px;
-      border-radius: 10px;
-      position: fixed;
-      bottom: 110px;
-    }
-  }
+  // &-typeInfo {
+  //   margin-top: 20px;
+
+  //   li {
+  //     font-size: 15px;
+  //     color: $dark-gray;
+  //   }
+  // }
+
+  // &-progressBar {
+  //   &__container {
+  //     height: 6px;
+  //     border-radius: 10px;
+  //     background: $light-gray;
+
+  //     position: fixed;
+  //     overflow: hidden;
+  //     bottom: 110px;
+  //     left: 20px;
+  //     right: 20px;
+  //   }
+
+  //   &__progress {
+  //     background: $dark-gray;
+  //     z-index: 99;
+  //     width: 20%;
+  //     height: 6px;
+  //     border-radius: 10px;
+  //     position: fixed;
+  //     bottom: 110px;
+  //   }
+  // }
 
   &-pageLink {
     &__next {
       position: fixed;
-      bottom: 30px;
+      bottom: 12px;
       left: 20px;
       right: 20px;
       padding: 15px 45px;
       font-size: 16px;
       text-align: center;
-      background: $light-gray;
       color: $white;
-
+      border: none;
+      background-color: $light-gray;
+      
       &.active {
         background-color: $black;
-        border: none;
       }
     }
   }
